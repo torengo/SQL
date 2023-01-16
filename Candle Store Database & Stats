@@ -1,6 +1,13 @@
 - Create a Candle Store Database
 
-CREATE TABLE candle_store (id INTEGER PRIMARY KEY, scent TEXT, size INTEGER, price INTEGER, unit INTEGER, season TEXT); 
+CREATE TABLE candle_store (
+id INTEGER PRIMARY KEY, 
+scent TEXT, 
+size INTEGER, 
+price INTEGER, 
+unit INTEGER, 
+season TEXT
+); 
 
 INSERT INTO candle_store VALUES 
 (1, "Warm Autumn", 10, 30.00, 10, "Seasonal"),
@@ -22,9 +29,14 @@ INSERT INTO candle_store VALUES
 
 - Organize candles by scent.
 
-SELECT scent, category FROM candle_store ORDER BY category;
+SELECT scent, category 
+FROM candle_store 
+ORDER BY category;
 
 - What are the 5 top selling candles?
 
-SELECT scent, stock FROM candle_store ORDER BY stock LIMIT 5;
+SELECT scent, stock 
+FROM candle_store 
+ORDER BY stock 
+LIMIT 5;
 
