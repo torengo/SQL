@@ -33,10 +33,22 @@ SELECT scent, category
 FROM candle_store 
 ORDER BY category;
 
-- What are the 5 top selling candles?
+- What are our top 5 bestselling candles?
 
 SELECT scent, stock 
 FROM candle_store 
 ORDER BY stock 
 LIMIT 5;
+
+- What are the top 5 bestsellers during the season?
+
+SELECT *
+FROM candle_store 
+GROUP BY season
+ORDER BY stock 
+LIMIT 5;
+
+- What is the average amount of candles sold each month?
+
+SELECT AVG(unit) FROM candle_store;
 
