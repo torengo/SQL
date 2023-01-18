@@ -35,18 +35,19 @@ INSERT INTO sales(transaction_date,product,price,payment_type,name,city,state,co
 INSERT INTO sales(transaction_date,product,price,payment_type,name,city,state,country,account_created,last_login,latitude,longitude) VALUES ('1/6/09 7:45','Couch',3600,'Visa','Sabine','London','England','United Kingdom','1/6/09 7:00','1/6/09 9:17',51.52721,0.14559);
 INSERT INTO sales(transaction_date,product,price,payment_type,name,city,state,country,account_created,last_login,latitude,longitude) VALUES ('1/2/09 7:35','Chair',1200,'Diners','Hani','Salt Lake city','UT','United states','12/30/08 5:44','1/6/09 10:52',40.76083,-111.89028);
 
--
-SELECT AVG(price) FROM sales;
-SELECT MAX(price) FROM sales;
+- What's the minimum price of our products?
 SELECT MIN(price) FROM sales;
 
--
+- What's the maximum price of our products?
+SELECT MAX(price) FROM sales;
+
+- Which orders purchased were using Visa and what date were they purchased on?
 SELECT transaction_date, payment_type
 FROM sales
 GROUP BY 1, 2
 HAVING payment_type = 'Visa';
 
--
+- How can we simplify which orders purchased are international?
 SELECT transaction_date, product, price, payment_type,
     CASE
         WHEN country = 'United States' THEN 'US'
@@ -54,7 +55,9 @@ SELECT transaction_date, product, price, payment_type,
     END 'customer_location'
 FROM sales;
 
--
-SELECT * FROM sales
+- Which products are above the price $1,200 and are they Couches?
+SELECT products, price FROM sales
 WHERE price > 1200
     OR product = 'Couch';
+    
+    
